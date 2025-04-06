@@ -3,8 +3,8 @@ export interface Task {
     title: String,
     description: String,
     status: String,
-    createdAt: String,
-    updatedAt: String
+    createdAt?: String,
+    updatedAt?: String
 }
 
 export interface TaskRequest {
