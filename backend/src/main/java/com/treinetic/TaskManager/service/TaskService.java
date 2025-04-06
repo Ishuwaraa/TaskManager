@@ -6,6 +6,8 @@ import com.treinetic.TaskManager.model.Task;
 import com.treinetic.TaskManager.repository.TaskRepository;
 import com.treinetic.TaskManager.repository.UserRepository;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -31,16 +33,20 @@ public class TaskService {
     }
 
     public List<Task> getAllTasksCreatedByUser() {
-        return taskRepository.findByUserEmail("ishuwara@gmail.com");
+        //getting email from the security context set in the jwt filter
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return taskRepository.findByUserEmail(authentication.getName());
     }
 
     public Task getTaskByIdCreatedByUser(Long id) {
-        return taskRepository.findByIdAndUserEmail(id, "ishuwara@gmail.com")
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return taskRepository.findByIdAndUserEmail(id, authentication.getName())
                 .orElse(null);
     }
 
     public Task createTask(TaskDTO dto) {
-        MyUser user = userRepository.findByEmail("ishuwara@gmail.com")
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        MyUser user = userRepository.findByEmail(authentication.getName())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "user not found"));
 
         Task task = new Task();
@@ -53,7 +59,8 @@ public class TaskService {
     }
 
     public Task updateTask(int id, TaskDTO dto) {
-        Task task = taskRepository.findByIdAndUserEmail((long) id, "wedage@gmail.com")
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Task task = taskRepository.findByIdAndUserEmail((long) id, authentication.getName())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "No task found"));
 
         task.setTitle(dto.getTitle());
@@ -64,7 +71,8 @@ public class TaskService {
     }
 
     public void deleteTask(int id) {
-        Task task = taskRepository.findByIdAndUserEmail((long) id, "wedage@gmail.com")
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Task task = taskRepository.findByIdAndUserEmail((long) id, authentication.getName())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "No task found"));
         taskRepository.deleteById((task.getId()));
     }

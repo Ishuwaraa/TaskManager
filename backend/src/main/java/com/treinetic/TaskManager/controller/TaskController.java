@@ -51,9 +51,4 @@ public class TaskController {
         taskService.deleteTask(id);
         return new ResponseEntity<>("Task deleted successfully", HttpStatus.OK);
     }
-
-    @PostMapping("/test/user")
-    public ResponseEntity<?> createTestUser(@RequestBody MyUser myUser) {
-        return new ResponseEntity<>(taskService.createTestUser(myUser), HttpStatus.CREATED);
-    }
 }
