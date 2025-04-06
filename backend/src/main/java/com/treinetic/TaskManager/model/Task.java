@@ -26,7 +26,7 @@ public class Task {
     @Column(nullable = false)
     private String title;
     private String description;
-    private String status;
+    private String status;  //TO_D0, IN_PROGRESS, DONE
 
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
