@@ -2,7 +2,11 @@
 <div>
     @if (tasks().length > 0) {
         @for (task of tasks(); track task.id) {
-            <p>{{ task.title }} || {{ task.description }} || {{ task.status }}</p>
+            <div>
+                <p>{{ task.title }} || {{ task.description }} || {{ task.status }}</p>
+                <button [routerLink]="['/edit-task', task.id]">Edit Task</button>
+                <button (click)="onDeleteTask(task.id)">Delete</button>
+            </div>
         }
     } @else {
         <p>you don't have any tasks yet</p>
