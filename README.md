@@ -42,13 +42,13 @@ docker-compose up --build
 
 1. **Run the Backend**:
 
-./mvnw clean package -DskipTests
+./mvnw clean package -DskipTests  
 java -jar target/TaskManager.jar
 
 2. **Run the Frontend**:
 
-cd frontend
-npm install
+cd frontend  
+npm install  
 ng serve
 
 
