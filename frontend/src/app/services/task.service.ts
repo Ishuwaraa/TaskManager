@@ -32,22 +32,47 @@ export class TaskService {
   ])
 
   fetchAllTasks() {
-    return this.http.get<Task[]>(`${this.apiUrl}/`);
+    const accessToken = localStorage.getItem('accessToken');
+    const headers = {
+      'Authorization': `Bearer ${accessToken}`
+    };
+
+    return this.http.get<Task[]>(`${this.apiUrl}/`, { headers });
   }
 
   getTaskById(id: number) {
-    return this.http.get<Task>(`${this.apiUrl}/${id}`);
+    const accessToken = localStorage.getItem('accessToken');
+    const headers = {
+      'Authorization': `Bearer ${accessToken}`
+    };
+
+    return this.http.get<Task>(`${this.apiUrl}/${id}`, { headers });
   }
 
   createTask(task: TaskRequest) {
-    return this.http.post(`${this.apiUrl}/`, task);
+    const accessToken = localStorage.getItem('accessToken');
+    const headers = {
+      'Authorization': `Bearer ${accessToken}`
+    };
+
+    return this.http.post(`${this.apiUrl}/`, task, { headers });
   }
 
   updateTask(id: number, task: TaskRequest) {
-    return this.http.put(`${this.apiUrl}/${id}`, task);
+    const accessToken = localStorage.getItem('accessToken');
+    const headers = {
+      'Authorization': `Bearer ${accessToken}`
+    };
+
+    return this.http.put(`${this.apiUrl}/${id}`, task, { headers });
   }
 
   deleteTask(id: number) {
-    return this.http.delete(`${this.apiUrl}/${id}`, { responseType: 'text' });
+    const accessToken = localStorage.getItem('accessToken');
+    const headers = {
+      'Authorization': `Bearer ${accessToken}`
+    };
+
+    return this.http.delete(`${this.apiUrl}/${id}`, { headers, responseType: 'text' });
   }
 }
