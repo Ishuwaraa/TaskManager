@@ -78,6 +78,6 @@ export class AuthService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    return throwError(() => new Error(error.message));        
+    return throwError(() => error);        
   }
 }

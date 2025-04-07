@@ -26,12 +26,25 @@ export class SignupComponent {
     if (this.signUpForm.valid) {
       const signUpData: UserRegisterRequest = this.signUpForm.value;
       
-      this.authService.signup(signUpData).subscribe((response) => {
-        this.router.navigate(['/login']);
-        this.resetForm();
-        this.snackBar.open('Account created successfully!', 'Close', {
-          duration: 3000
-        });
+      this.authService.signup(signUpData).subscribe({
+        next: (response) => {
+          this.router.navigate(['/login']);
+          this.resetForm();
+          this.snackBar.open('Account created successfully!', 'Close', {
+            duration: 3000
+          });
+        },
+        error: (error) => {
+          if (error.status === 409) {
+            this.snackBar.open('Email already exists. Please use a different email.', 'Close', {
+              duration: 3000
+            });
+          } else {
+            this.snackBar.open('Error occurred while creating your account. Try again later.', 'Close', {
+              duration: 3000
+            });
+          }
+        }
       })
     }
   }
