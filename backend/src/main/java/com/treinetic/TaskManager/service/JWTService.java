@@ -26,7 +26,7 @@ public class JWTService {
     @Value("${jwt.refresh.secret}")
     private String refreshTokenSecret;
 
-    private long accessTokenExpiration = 1000 * 60 * 2; //2min
+    private long accessTokenExpiration = 1000 * 60 * 60; //1h
     private long refreshTokenExpiration = 1000 * 60 * 60 * 24 * 7;  //7d
 
     public String generateAccessToken(UserDetails userDetails, Map<String, Object> extraClaims) {
