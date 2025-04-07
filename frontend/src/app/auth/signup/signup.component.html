@@ -1,1 +1,26 @@
-<p>signup works!</p>
+<div>
+    <form [formGroup]="signUpForm" (submit)="onFormSubmit()">
+        <input type="text" formControlName="name" placeholder="Full name" required/>
+        @if (signUpForm.get('name')?.touched && signUpForm.get('name')?.hasError('required')) {
+            <span>Name is required</span>
+        }
+
+        <br /><input type="email" formControlName="email" placeholder="email" required/>
+        @if (signUpForm.get('email')?.touched && signUpForm.get('email')?.hasError('required')) {
+            <span>Email is required</span>
+        }
+
+        <br /><input type="password" formControlName="password" placeholder="password" required/>
+        @if (signUpForm.get('password')?.touched && signUpForm.get('password')?.hasError('required')) {
+            <span>Password is required</span>
+        }
+        <br />        
+        
+        <br /><button>Sign up</button>
+        <p>Already have an account?</p><span routerLink="/login">Login here</span>
+
+        <!-- @if (errorMessage) {
+            <div>{{ errorMessage }}</div>
+        } -->
+    </form>
+</div>

@@ -10,8 +10,15 @@ import { AuthService } from '../../services/auth.service';
 })
 export class NavbarComponent {
   authService = inject(AuthService);
+  shouldShowAuthLinks: boolean = true;
 
   //constructor(private router: Router) {}
+
+  // ngOnInit() {
+  //   this.authService.isLoggedIn().subscribe(response => {
+  //     this.shouldShowAuthLinks = false;
+  //   })
+  // }
 
   logout() {
     this.authService.logout().subscribe(response => {
