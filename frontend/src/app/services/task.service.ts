@@ -8,28 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class TaskService {
   private readonly apiUrl = "http://localhost:8080/api/task";
 
-  constructor(private http: HttpClient) { }
-
-  tasks = signal<Task[]>([
-    {
-      id: 10,
-      title: 'task1',
-      description: 'my task',
-      status: 'todo',
-    },
-    {
-      id: 11,
-      title: 'task2',
-      description: 'my task',
-      status: 'inprogress',
-    },
-    {
-      id: 12,
-      title: 'task3',
-      description: 'my task',
-      status: 'dones',
-    },
-  ])
+  constructor(private http: HttpClient) { }  
 
   fetchAllTasks() {
     const accessToken = localStorage.getItem('accessToken');

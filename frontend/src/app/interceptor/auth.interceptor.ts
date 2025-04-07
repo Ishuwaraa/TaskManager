@@ -69,6 +69,7 @@ function handleTokenExpired(request: HttpRequest<any>, next: HttpHandlerFn, auth
 
             //if refresh end point returns 403, logging out due to token tampering or expiration
             if (error instanceof HttpErrorResponse && error.status === 403) {
+              //diff func here cuz logout is set as a protected route 
                 authService.logoutDueToCookieExpiration();
             }
 

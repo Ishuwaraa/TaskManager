@@ -1,0 +1,146 @@
+.task-page-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.welcome-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e3f2fd;
+  border-radius: 12px;
+  padding: 24px 48px;
+  margin-bottom: 36px;
+}
+
+.welcome-text {
+  max-width: 50%;
+}
+
+.welcome-text h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.welcome-text p {
+  color: #666;
+  font-size: 16px;
+}
+
+.banner-image img {
+  max-width: 100%;
+  height: auto;
+  max-height: 200px;
+}
+
+.task-section h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.task-table-container {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.task-table {
+  width: 100%;
+}
+
+.mat-header-cell {
+  color: #2196f3;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 16px;
+}
+
+.mat-cell {
+  padding: 16px;
+  font-size: 14px;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-badge.todo {
+  background-color: #fff59d;
+  color: #333;
+}
+
+.status-badge.in-progress {
+  background-color: #f8bbd0;
+  color: #333;
+}
+
+.status-badge.done {
+  background-color: #b9f6ca;
+  color: #333;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 4px;
+}
+
+.task-row:hover {
+  background-color: #f5f5f5;
+}
+
+.no-tasks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+.no-tasks mat-icon {
+  font-size: 48px;
+  height: 48px;
+  width: 48px;
+  color: #bdbdbd;
+  margin-bottom: 16px;
+}
+
+.no-tasks p {
+  font-size: 18px;
+  color: #757575;
+  margin-bottom: 24px;
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.status-filter {
+  width: 150px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .welcome-banner {
+    flex-direction: column;
+    padding: 24px;
+  }
+  
+  .welcome-text {
+    max-width: 100%;
+    margin-bottom: 24px;
+  }
+  
+  .mat-header-cell, .mat-cell {
+    padding: 12px 8px;
+  }
+}
