@@ -43,7 +43,7 @@ docker-compose up --build
 1. **Run the Backend**:
 
 ./mvnw clean package -DskipTests  
-java -jar target/TaskManager.jar
+java -jar target/TaskManager-0.0.1-SNAPSHOT.jar
 
 2. **Run the Frontend**:
 
