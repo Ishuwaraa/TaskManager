@@ -1,23 +1,27 @@
 import { Routes } from '@angular/router';
-import { TaskListComponent } from './pages/task-list/task-list.component';
-import { AddTaskComponent } from './pages/add-task/add-task.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
-import { EditTaskComponent } from './pages/edit-task/edit-task.component';
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        component: TaskListComponent
+        loadComponent: () => import('./pages/task-list/task-list.component')
+            .then(m => m.TaskListComponent),
+        canActivate: [AuthGuard]
     },
     {
         path: 'add-task',
-        component: AddTaskComponent
+        loadComponent: () => import('./pages/add-task/add-task.component')
+            .then(m => m.AddTaskComponent),
+        canActivate: [AuthGuard]
     },
     {
         path: 'edit-task/:id',
-        component: EditTaskComponent
+        loadComponent: () => import('./pages/edit-task/edit-task.component')
+            .then(m => m.EditTaskComponent),
+        canActivate: [AuthGuard]
     },
     {
         path: 'login',

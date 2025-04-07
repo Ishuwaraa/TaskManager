@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./shared/navbar/navbar.component";
 
 @Component({
@@ -10,4 +10,10 @@ import { NavbarComponent } from "./shared/navbar/navbar.component";
 })
 export class AppComponent {
   title = 'frontend';
+
+  constructor(private router: Router) {}
+
+  shouldShowNavbar(): boolean {
+    return !['/login', '/signup'].includes(this.router.url);
+  }
 }
