@@ -1,21 +1,50 @@
-<div>
-    <form [formGroup]="loginForm" (submit)="onFormSubmit()">
-        <input type="email" formControlName="email" placeholder="email" required/>
-        @if (loginForm.get('email')?.touched && loginForm.get('email')?.hasError('required')) {
-            <span>Email is required</span>
-        }
-
-        <br /><input type="password" formControlName="password" placeholder="password" required/>
-        @if (loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')) {
-            <span>Password is required</span>
-        }
-        <br />        
-        
-        <br /><button>Login</button>
-        <p>Don't have an account?</p><span routerLink="/signup">Sign up now</span>
-
+<div class="container">
+    <div class="login-card">
+      <h2 class="title">Login</h2>
+      
+      <form [formGroup]="loginForm" (submit)="onFormSubmit()">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input 
+            type="email" 
+            id="email"
+            formControlName="email" 
+            placeholder="Enter your email"
+            required
+          />
+          @if (loginForm.get('email')?.touched && loginForm.get('email')?.hasError('required')) {
+            <span class="error-message">Email is required</span>
+          }
+        </div>
+  
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input 
+            type="password" 
+            id="password"
+            formControlName="password" 
+            placeholder="Enter your password"
+            required
+          />
+          @if (loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')) {
+            <span class="error-message">Password is required</span>
+          }
+        </div>
+  
+        <div class="signup-link">
+          Don't have an account? <a routerLink="/signup">Sign up now</a>
+        </div>
+  
+        <button type="submit" class="login-button">Login</button>
+  
         @if (errorMessage) {
-            <div>{{ errorMessage }}</div>
+          <div class="error-alert">{{ errorMessage }}</div>
         }
-    </form>
+      </form>
+    </div>
+  
+    <div class="illustration">
+      <h1 class="app-title">Task Manager</h1>
+      <img src="login.png" alt="Task Manager Illustration">
+    </div>
 </div>

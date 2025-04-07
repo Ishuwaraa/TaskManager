@@ -1,0 +1,139 @@
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f7fa;
+    font-family: 'Segoe UI', Arial, sans-serif;
+  }
+  
+  .login-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 40px;
+    width: 400px;
+    max-width: 90%;
+  }
+  
+  .title {
+    text-align: center;
+    color: #2196f3;
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: 500;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #2196f3;
+  }
+  
+  .error-message {
+    color: #f44336;
+    font-size: 13px;
+    margin-top: 5px;
+    display: block;
+  }
+  
+  .login-button {
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+  }
+  
+  .login-button:hover {
+    background-color: #1976d2;
+  }
+  
+  .signup-link {
+    text-align: left;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .signup-link a {
+    color: #2196f3;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+  
+  .error-alert {
+    background-color: #ffebee;
+    color: #f44336;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .illustration {
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .app-title {
+    color: #2196f3;
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  
+  .illustration img {
+    max-width: 500px;
+    max-height: 400px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .illustration {
+        margin-left: 0;
+        margin-top: 40px;
+        order: -1;
+    }
+    
+    .illustration img {
+        max-width: 300px;
+    }
+}
