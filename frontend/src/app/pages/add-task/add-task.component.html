@@ -1,20 +1,41 @@
-<div>
-    <form [formGroup]="taskForm" (submit)="onAddTask()">
-        <input type="text" formControlName="title" placeholder="title" required/>
-        @if (taskForm.get('title')?.touched && taskForm.get('title')?.hasError('required')) {
-            <span>Title is required</span>
-        }
-        @if (taskForm.get('title')?.touched && taskForm.get('title')?.hasError('maxlength')) {
-            <span>Title should be maximum of 50 characters</span>
-        }
-        <br />
-
-        <textarea formControlName="description" placeholder="description"></textarea>
-        @if (taskForm.get('description')?.touched && taskForm.get('description')?.hasError('maxlength')) {
-            <span>Description should be maximum of 100 characters</span>
-        }
-        <br />
-        
-        <br /><button>Add Task</button>
-    </form>
+<div class="edit-task-container">
+    <div class="edit-task-card">
+      <h2 class="title">Add Your Task</h2>
+  
+      <form [formGroup]="taskForm" (submit)="onAddTask()">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input 
+            type="text" 
+            id="title"
+            formControlName="title" 
+            placeholder="Enter task title" 
+            required
+          />
+          @if (taskForm.get('title')?.touched && taskForm.get('title')?.hasError('required')) {
+            <span class="error-message">Title is required</span>
+          }
+          @if (taskForm.get('title')?.touched && taskForm.get('title')?.hasError('maxlength')) {
+            <span class="error-message">Title should be maximum of 50 characters</span>
+          }
+        </div>
+  
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea 
+            id="description"
+            formControlName="description" 
+            placeholder="Enter task description"
+            rows="5"
+          ></textarea>
+          @if (taskForm.get('description')?.touched && taskForm.get('description')?.hasError('maxlength')) {
+            <span class="error-message">Description should be maximum of 100 characters</span>
+          }
+        </div>        
+  
+        <div class="button-group">
+          <button type="submit" class="edit-btn">Add Task</button>
+        </div>
+      </form>
+    </div>
 </div>

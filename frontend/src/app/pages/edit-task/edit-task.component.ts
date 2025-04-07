@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { TaskService } from '../../services/task.service';
 import { FormControl, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TaskRequest } from '../../models/task.model';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
@@ -16,7 +16,7 @@ export class EditTaskComponent {
   statusOptions: string[] = ['TODO', 'IN PROGRESS', 'DONE'];
   taskId: number = 0;
 
-  constructor(private route: ActivatedRoute, private snackBar: MatSnackBar) {}
+  constructor(private route: ActivatedRoute, private snackBar: MatSnackBar, private router: Router) {}
 
   taskForm: FormGroup = new FormGroup({
     title: new FormControl('', [Validators.required, Validators.maxLength(50)]),
@@ -48,6 +48,17 @@ export class EditTaskComponent {
         this.snackBar.open('Task updated successfully!', 'Close', {
           duration: 3000
         });
+      })
+    }
+  }
+
+  onDeleteTask() {
+    if (window.confirm('Are you sure you want to delete this task?')) {
+      this.taskService.deleteTask(this.taskId).subscribe(response => {        
+        this.snackBar.open('Task deleted successfully!', 'Close', {
+          duration: 3000
+        });
+        this.router.navigate(['/'], { replaceUrl: true })
       })
     }
   }

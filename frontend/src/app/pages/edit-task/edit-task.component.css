@@ -1,0 +1,144 @@
+.edit-task-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #f5f7fa;
+    min-height: calc(100vh - 70px);
+}
+  
+.edit-task-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+}
+  
+.title {
+    text-align: center;
+    color: #2196f3;
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+  
+.form-group {
+    margin-bottom: 24px;
+}
+  
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+    font-size: 16px;
+}
+  
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+  
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #2196f3;
+}
+  
+textarea {
+    resize: none;
+    min-height: 120px;
+}
+  
+.select-wrapper {
+    position: relative;
+}
+  
+.select-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #666;
+    pointer-events: none;
+}
+  
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: white;
+    cursor: pointer;
+    padding-right: 30px;
+}
+  
+.error-message {
+    color: #f44336;
+    font-size: 13px;
+    margin-top: 5px;
+    display: block;
+}
+  
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+  
+.delete-btn {
+    background-color: #ff5252;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 150px;
+}
+  
+.delete-btn:hover {
+    background-color: #ff1744;
+}
+  
+.edit-btn {
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 150px;
+}
+  
+.edit-btn:hover {
+    background-color: #1976d2;
+}
+  
+@media (max-width: 480px) {
+    .edit-task-card {
+      padding: 20px;
+    }
+    
+    .button-group {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .delete-btn, .edit-btn {
+      width: 100%;
+    }
+}

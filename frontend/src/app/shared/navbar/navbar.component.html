@@ -1,9 +1,10 @@
-<ul>    
-    <li routerLink="/">All tasks</li>
-    <li routerLink="/add-task">Add task</li>
-    <!-- @if (shouldShowAuthLinks) {
-        <li routerLink="/login">login</li>
-        <li routerLink="/signup">signup</li>
-    } -->
-</ul>
-<button (click)="logout()">logout</button>
+<mat-toolbar class="navbar">
+    <div class="logo">
+      <span>Task Manager</span>
+    </div>
+    <div class="nav-links">
+      <a routerLink="/">All Task</a>
+      <a routerLink="/add-task">Add Task</a>
+    </div>
+    <button mat-raised-button class="logout-btn" (click)="logout()">Logout</button>
+</mat-toolbar>
