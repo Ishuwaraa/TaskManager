@@ -62,7 +62,7 @@ ng serve
     - One User -> Many Tasks
 
 
-## Authentication && Security
+## Authentication & Security
 
 - Implemented using Spring Security + JWT.
 - On login: 
